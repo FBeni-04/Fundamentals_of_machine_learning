@@ -76,7 +76,7 @@ def main():
             if key == 'karfiol':
                 print(f"{value} darab karfiolt rendelt {item_count_by_person[key]} különböző ember.")
 
-    except OperationalError:
+    except ValueError:
         print("Could not connect to Oracle db.")
 
 if __name__ == "__main__":
