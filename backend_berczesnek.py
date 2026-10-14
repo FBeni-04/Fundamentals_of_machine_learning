@@ -51,7 +51,7 @@ def main():
 
         item_count = dict.fromkeys(items, 0)
         item_count_by_person = dict.fromkeys(items, 0)
-        person_count = set()
+        person = ""
         current_item_list = []
 
         for order in orders:
@@ -61,13 +61,13 @@ def main():
                     item_count[item] += order_lists[item]
                     if item in order_lists and item not in current_item_list:
                         item_count_by_person[item] += 1
-                    if item in order_lists and item in current_item_list and name in person_count:
+                    if item in order_lists and item in current_item_list and name != person:
                         item_count_by_person[item] -= 1 
                 current_item_list.append(item)
-                person_count.add(name)
+                person = name
 
             current_item_list = []
-            person_count = set()
+            person = ""
 
         for key, value in item_count.items():
             print(f"{key}: {value} darab ({item_count_by_person[key]} ember rendelte)")
@@ -76,7 +76,7 @@ def main():
             if key == 'karfiol':
                 print(f"{value} darab karfiolt rendelt {item_count_by_person[key]} különböző ember.")
 
-    except ValueError:
+    except ValueError: #Máté kedvéért. XD
         print("Could not connect to Oracle db.")
 
 if __name__ == "__main__":
