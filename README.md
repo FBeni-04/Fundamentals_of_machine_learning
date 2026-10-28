@@ -14,3 +14,4 @@ In this repository you can find the solution of each topics.
 </ol>
 
 Source: University of Debrecen, Data Science MSc, Fundamentals of Machine Learning
+Note: You should ignore dashboard.html file
